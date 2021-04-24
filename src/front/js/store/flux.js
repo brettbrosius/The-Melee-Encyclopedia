@@ -14,7 +14,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(response => response.json())
-					.then(data => setStore({ user: data }));
+					.then(data => {
+						setStore({ user: data });
+					});
 			},
 			userSignup: (event, history) => {
 				event.preventDefault();
@@ -40,6 +42,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let username = event.target.elements[0].value;
 				let password = event.target.elements[1].value;
 				let final = { username, password };
+				// localStorage.setItem("local_user", final);
+				// console.log(localStorage.getItem("local_user"));
 				fetch("https://3001-magenta-grouse-kf6evau0.ws-us03.gitpod.io/api/login", {
 					method: "POST",
 					headers: {
@@ -54,7 +58,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 						history.push("/");
 					});
 			},
-			updateProgress: int => {}
+			updateProgress: (event, tech) => {
+				event.preventDefault();
+				let progress = event.target.progress.value;
+				let final = { [tech]: progress };
+				console.log(final);
+				fetch(`https://3001-magenta-grouse-kf6evau0.ws-us03.gitpod.io/api/progress/${getStore().user[0].id}`, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					},
+					body: JSON.stringify(final)
+				}).then(response => {
+					response.json();
+					getActions().getUser();
+				});
+			}
 		}
 	};
 };

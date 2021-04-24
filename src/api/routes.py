@@ -107,6 +107,7 @@ def add_progress(id):
         db.session.add(new_progress)
         db.session.commit()
     else:
+        # record.attribute_to_update = body[attribute_to_update]
         if attribute_to_update == "lag_cancel":
             record.lag_cancel = body["lag_cancel"]
         elif attribute_to_update == "short_hop":
@@ -122,4 +123,4 @@ def add_progress(id):
         db.session.add(record)
         db.session.commit()
 
-    return "Progress updated.", 200
+    return jsonify("Progress updated."), 200

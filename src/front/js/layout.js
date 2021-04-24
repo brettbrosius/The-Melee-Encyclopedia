@@ -8,6 +8,7 @@ import { Login } from "./pages/login";
 import { Profile } from "./pages/profile";
 import injectContext from "./store/appContext";
 
+import { Sidebar } from "./component/sidebar";
 import { Navbar } from "./component/navbar";
 import { ShortHop } from "./pages/short_hop";
 import { FastFall } from "./pages/fast_fall";
