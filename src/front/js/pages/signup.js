@@ -14,13 +14,6 @@ export const Signup = () => {
 
 	return (
 		<div className="text-center mt-5">
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
 			<h1>Sign-up</h1>
 			<form onSubmit={signup}>
 				<input className="mt-2" id="username" type="text" placeholder="Username" />

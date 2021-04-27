@@ -5,6 +5,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: null
 		},
 		actions: {
+			userLogout: history => {
+				setStore({ token: null });
+				setStore({ user: null });
+				localStorage.clear();
+				history.push("/");
+			},
+			checkUser: () => {
+				// if ((getStore().user.msg = "Token has expired")) getActions().userLogout();
+				let local_token = localStorage.getItem("local_token");
+				if (local_token != null) setStore({ token: local_token });
+				getActions().getUser();
+			},
 			getUser: () => {
 				fetch("https://3001-magenta-grouse-kf6evau0.ws-us03.gitpod.io/api/user/", {
 					method: "GET",
@@ -42,8 +54,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let username = event.target.elements[0].value;
 				let password = event.target.elements[1].value;
 				let final = { username, password };
-				// localStorage.setItem("local_user", final);
-				// console.log(localStorage.getItem("local_user"));
 				fetch("https://3001-magenta-grouse-kf6evau0.ws-us03.gitpod.io/api/login", {
 					method: "POST",
 					headers: {
@@ -55,6 +65,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						setStore({ token: data.access_token });
 						getActions().getUser();
+						localStorage.clear();
+						localStorage.setItem("local_token", data.access_token);
 						history.push("/");
 					});
 			},

@@ -14,13 +14,6 @@ export const Login = () => {
 
 	return (
 		<div className="text-center mt-5">
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
 			<h1>Log-in</h1>
 			<form onSubmit={login}>
 				<input className="mt-2" id="username" type="text" placeholder="Username" />
