@@ -12,13 +12,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				history.push("/");
 			},
 			checkUser: () => {
-				// if ((getStore().user.msg = "Token has expired")) getActions().userLogout();
 				let local_token = localStorage.getItem("local_token");
 				if (local_token != null) setStore({ token: local_token });
+				console.log(local_token);
+				console.log(getStore().user);
+				console.log(getStore().token);
 				getActions().getUser();
 			},
 			getUser: () => {
-				fetch("https://3001-magenta-grouse-kf6evau0.ws-us03.gitpod.io/api/user/", {
+				fetch("https://3001-magenta-grouse-kf6evau0.ws-us04.gitpod.io/api/user/", {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
@@ -35,26 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let username = event.target.elements[0].value;
 				let password = event.target.elements[1].value;
 				let final = { username, password };
-				fetch("https://3001-magenta-grouse-kf6evau0.ws-us03.gitpod.io/api/signup", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify(final)
-				})
-					.then(response => response.json())
-					.then(data => {
-						setStore({ token: data.access_token });
-						getActions().getUser();
-						history.push("/");
-					});
-			},
-			userLogin: (event, history) => {
-				event.preventDefault();
-				let username = event.target.elements[0].value;
-				let password = event.target.elements[1].value;
-				let final = { username, password };
-				fetch("https://3001-magenta-grouse-kf6evau0.ws-us03.gitpod.io/api/login", {
+				fetch("https://3001-magenta-grouse-kf6evau0.ws-us04.gitpod.io/api/signup", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -70,12 +53,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 						history.push("/");
 					});
 			},
-			updateProgress: (event, tech) => {
+			userLogin: (event, history) => {
 				event.preventDefault();
-				let progress = event.target.progress.value;
+				let username = event.target.elements[0].value;
+				let password = event.target.elements[1].value;
+				let final = { username, password };
+				fetch("https://3001-magenta-grouse-kf6evau0.ws-us04.gitpod.io/api/login", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(final)
+				})
+					.then(response => response.json())
+					.then(data => {
+						setStore({ token: data.access_token });
+						getActions().getUser();
+						localStorage.clear();
+						localStorage.setItem("local_token", data.access_token);
+						history.push("/");
+					});
+			},
+			updateProgress: (progress, tech) => {
 				let final = { [tech]: progress };
-				console.log(final);
-				fetch(`https://3001-magenta-grouse-kf6evau0.ws-us03.gitpod.io/api/progress/${getStore().user[0].id}`, {
+				fetch(`https://3001-magenta-grouse-kf6evau0.ws-us04.gitpod.io/api/progress/${getStore().user.id}`, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",

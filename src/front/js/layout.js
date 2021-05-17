@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
+import { About } from "./pages/about";
 import { Signup } from "./pages/signup";
 import { Login } from "./pages/login";
 import { Profile } from "./pages/profile";
 import injectContext from "./store/appContext";
 
-import { Sidebar } from "./component/sidebar";
 import { Navbar } from "./component/navbar";
 import { ShortHop } from "./pages/short_hop";
 import { FastFall } from "./pages/fast_fall";
@@ -17,10 +17,7 @@ import { Wavedash } from "./pages/wavedash";
 import { DashDance } from "./pages/dash_dance";
 import { Teching } from "./pages/teching";
 
-//create your first component
 const Layout = () => {
-	//the basename is used when your project is published in a subdirectory and not in the root of the domain
-	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
 
 	return (
@@ -31,6 +28,9 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+						<Route exact path="/about">
+							<About />
 						</Route>
 						<Route exact path="/signup">
 							<Signup />

@@ -48,7 +48,7 @@ def get_user():
     user_id = get_jwt_identity()
     user = User.query.get(user_id)
     progress = Progress.query.filter_by(user_id=user_id).first()
-    return jsonify(user.serialize(), progress.serialize()), 200
+    return jsonify(user.serialize()), 200
 
 # @api.route("/progress/<int:id>", methods=["GET"])
 # @jwt_required()

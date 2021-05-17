@@ -1,30 +1,23 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
+import { DiscreteSlider } from "../component/slider.js";
 import "../../styles/home.scss";
 
 export const LagCancel = () => {
 	const { store, actions } = useContext(Context);
 
-	const updateProgress = e => {
-		actions.updateProgress(e, "lag_cancel");
-	};
-
-	if (store.token != null)
+	if (store.token != null && store.user)
 		return (
-			<div className="container-fluid">
+			<div className="container-fluid" style={{ position: "absolute", left: "300px" }}>
 				<h1>Lag Cancel</h1>
 				<p>This is where the tutorial content will go</p>
-				<p>Update your progress on a scale of 1-100 below:</p>
-				<form onSubmit={updateProgress}>
-					<input type="number" id="progress" name="progress" min="0" max="100" />
-					<input className="btn btn-secondary mt-2" type="submit" value="Submit" />
-				</form>
-				<p>My progress: {store.user[1].lag_cancel}</p>
+				<DiscreteSlider tech="lag_cancel" />
+				<p>My progress: {store.user.progress.lag_cancel}%</p>
 			</div>
 		);
 	else
 		return (
-			<div className="container-fluid">
+			<div className="container-fluid" style={{ position: "absolute", left: "300px" }}>
 				<h1>Lag Cancel</h1>
 				<p>This is where the tutorial content will go</p>
 				<p>Sign-up/Log-in to track your progress!</p>
