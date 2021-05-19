@@ -12,14 +12,14 @@ export const Login = () => {
 	};
 
 	return (
-		<div className="text-center mt-5">
-			<h1>Log-in</h1>
+		<div className="text-center my-5">
+			<h1 className="text-danger">Log-in</h1>
 			<form onSubmit={login}>
 				<input className="mt-2" id="username" type="text" placeholder="Username" />
 				<br />
 				<input className="mt-2" id="password" type="password" placeholder="Password" />
 				<br />
-				<input className="btn btn-secondary mt-2" type="submit" value="Submit" />
+				<input className="text-white btn btn-danger mt-2" type="submit" value="Submit" />
 			</form>
 		</div>
 	);

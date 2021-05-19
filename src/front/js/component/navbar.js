@@ -14,15 +14,15 @@ export const Navbar = () => {
 		return (
 			<nav
 				className="d-flex flex-column p-3 text-white bg-dark"
-				style={{ width: "280px", height: "100vh", position: "absolute" }}>
+				style={{ width: "280px", height: "100%", position: "absolute" }}>
 				<Link to="/">
-					<h1 className="navbar-brand mb-0 h1 text-white">The Melee Encyclopedia</h1>
+					<h1 className="navbar-brand mb-0 h1 text-danger">The Melee Encyclopedia</h1>
 				</Link>
 
 				<hr />
 				<ul className="nav nav-pills flex-column mb-auto">
 					<li>
-						<h4 className="nav-link text-white">Techniques</h4>
+						<h4 className="nav-link text-danger">Techniques</h4>
 						<ul>
 							<Link to="/short_hop">
 								<li className="nav-link text-white">Short Hop</li>
@@ -45,8 +45,13 @@ export const Navbar = () => {
 						</ul>
 					</li>
 					<li>
+						<Link to="/tournaments">
+							<h4 className="nav-link text-danger">Upcoming Tournaments</h4>
+						</Link>
+					</li>
+					<li>
 						<Link to="/about">
-							<h4 className="nav-link text-white">About/FAQ</h4>
+							<h4 className="nav-link text-danger">About/FAQ</h4>
 						</Link>
 					</li>
 					<hr />
@@ -65,15 +70,15 @@ export const Navbar = () => {
 		return (
 			<nav
 				className="d-flex flex-column p-3 text-white bg-dark"
-				style={{ width: "280px", height: "100vh", position: "absolute" }}>
+				style={{ width: "280px", height: "100%", position: "absolute" }}>
 				<Link to="/">
-					<h1 className="navbar-brand mb-0 h1 text-white">The Melee Encyclopedia</h1>
+					<h1 className="navbar-brand mb-0 h1 text-danger">The Melee Encyclopedia</h1>
 				</Link>
 
 				<hr />
 				<ul className="nav nav-pills flex-column mb-auto">
 					<li>
-						<h4 className="nav-link text-white">Techniques</h4>
+						<h4 className="nav-link text-danger">Techniques</h4>
 						<ul>
 							<Link to="/short_hop">
 								<li className="nav-link text-white">Short Hop</li>
@@ -96,17 +101,24 @@ export const Navbar = () => {
 						</ul>
 					</li>
 					<li>
+						<Link to="/tournaments">
+							<h4 className="nav-link text-danger">Upcoming Tournaments</h4>
+						</Link>
+					</li>
+					<li>
 						<Link to="/about">
-							<h4 className="nav-link text-white">About/FAQ</h4>
+							<h4 className="nav-link text-danger">About/FAQ</h4>
 						</Link>
 					</li>
 					<hr />
-					<Link to="/signup">
-						<button className="btn btn-primary">Sign-up</button>
-					</Link>
-					<Link to="/login">
-						<button className="btn btn-success">Log-in</button>
-					</Link>
+					<li>
+						<Link to="/signup">
+							<button className="btn btn-primary">Sign-up</button>
+						</Link>
+						<Link to="/login">
+							<button className="btn btn-success">Log-in</button>
+						</Link>
+					</li>
 				</ul>
 			</nav>
 		);

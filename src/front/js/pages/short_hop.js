@@ -8,20 +8,20 @@ export const ShortHop = () => {
 
 	if (store.token != null && store.user)
 		return (
-			<div className="container-fluid" style={{ position: "absolute", left: "300px" }}>
-				<h1>Short hop</h1>
-				<p>This is where the tutorial content will go</p>
+			<div className="container-fluid text-center my-5">
+				<h1 className="text-danger">Short hop</h1>
+				<p className="text-white">This is where the tutorial content will go</p>
 
 				<DiscreteSlider tech="short_hop" />
-				<p>My current progress: {store.user.progress.short_hop}%</p>
+				<p className="text-white">My current progress: {store.user.progress.short_hop}%</p>
 			</div>
 		);
 	else
 		return (
-			<div className="container-fluid" style={{ position: "absolute", left: "300px" }}>
-				<h1>Short hop</h1>
-				<p>This is where the tutorial content will go</p>
-				<p>Sign-up/Log-in to track your progress!</p>
+			<div className="container-fluid text-center my-5">
+				<h1 className="text-danger">Short hop</h1>
+				<p className="text-white">This is where the tutorial content will go</p>
+				<p className="text-white">Sign-up/Log-in to track your progress!</p>
 			</div>
 		);
 };

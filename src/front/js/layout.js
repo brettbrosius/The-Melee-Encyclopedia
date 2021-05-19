@@ -4,6 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
 import { About } from "./pages/about";
+import { Tournaments } from "./pages/tournaments";
 import { Signup } from "./pages/signup";
 import { Login } from "./pages/login";
 import { Profile } from "./pages/profile";
@@ -16,6 +17,30 @@ import { LagCancel } from "./pages/lag_cancel";
 import { Wavedash } from "./pages/wavedash";
 import { DashDance } from "./pages/dash_dance";
 import { Teching } from "./pages/teching";
+
+import { ApolloProvider } from "@apollo/client/react";
+import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+
+const smash_gg_auth = "f7c88ba7fe8ed5ba6b3e67e048461343";
+
+const httpLink = createHttpLink({
+	uri: "https://api.smash.gg/gql/alpha"
+});
+
+const authLink = setContext((_, { headers }) => {
+	return {
+		headers: {
+			...headers,
+			authorization: `Bearer ${smash_gg_auth}`
+		}
+	};
+});
+
+const apollo_client = new ApolloClient({
+	link: authLink.concat(httpLink),
+	cache: new InMemoryCache()
+});
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
@@ -31,6 +56,11 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/about">
 							<About />
+						</Route>
+						<Route exact path="/tournaments">
+							<ApolloProvider client={apollo_client}>
+								<Tournaments />
+							</ApolloProvider>
 						</Route>
 						<Route exact path="/signup">
 							<Signup />

@@ -8,19 +8,19 @@ export const FastFall = () => {
 
 	if (store.token != null && store.user)
 		return (
-			<div className="container-fluid" style={{ position: "absolute", left: "300px" }}>
-				<h1>Fast Fall</h1>
-				<p>This is where the tutorial content will go</p>
+			<div className="container-fluid text-center my-5">
+				<h1 className="text-danger">Fast Fall</h1>
+				<p className="text-white">This is where the tutorial content will go</p>
 				<DiscreteSlider tech="fast_fall" />
-				<p>My progress: {store.user.progress.fast_fall}%</p>
+				<p className="text-white">My progress: {store.user.progress.fast_fall}%</p>
 			</div>
 		);
 	else
 		return (
-			<div className="container-fluid" style={{ position: "absolute", left: "300px" }}>
-				<h1>Fast Fall</h1>
-				<p>This is where the tutorial content will go</p>
-				<p>Sign-up/Log-in to track your progress!</p>
+			<div className="container-fluid text-center my-5">
+				<h1 className="text-danger">Fast Fall</h1>
+				<p className="text-white">This is where the tutorial content will go</p>
+				<p className="text-white">Sign-up/Log-in to track your progress!</p>
 			</div>
 		);
 };

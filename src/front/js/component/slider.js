@@ -25,8 +25,8 @@ export const DiscreteSlider = props => {
 	};
 
 	return (
-		<div className={classes.root}>
-			<Typography id="discrete-slider" gutterBottom>
+		<div className={classes.root} style={{ display: "inline-block" }}>
+			<Typography id="discrete-slider" className="text-white" gutterBottom>
 				Set your progress below
 			</Typography>
 			<br />
@@ -39,6 +39,7 @@ export const DiscreteSlider = props => {
 				marks
 				min={0}
 				max={100}
+				color="primary"
 				onChangeCommitted={handleChange}
 			/>
 		</div>

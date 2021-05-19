@@ -8,15 +8,15 @@ export const Home = () => {
 	if (store.token != null)
 		return (
 			<div className="text-center mt-5">
-				<h1>Melee Encyclopedia Project</h1>
-				<p>Click a technique on the sidebar to get started!</p>
+				<h1 className="text-danger">Melee Encyclopedia Project</h1>
+				<p className="text-white">Click a technique on the sidebar to get started!</p>
 			</div>
 		);
 	else
 		return (
 			<div className="text-center mt-5">
-				<h1>Melee Encyclopedia Project</h1>
-				<p>Please sign-up/log-in to take full advantage of the site!</p>
+				<h1 className="text-danger">Melee Encyclopedia Project</h1>
+				<p className="text-white">Please sign-up/log-in to take full advantage of the site!</p>
 			</div>
 		);
 };

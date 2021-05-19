@@ -14,9 +14,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			checkUser: () => {
 				let local_token = localStorage.getItem("local_token");
 				if (local_token != null) setStore({ token: local_token });
-				console.log(local_token);
-				console.log(getStore().user);
-				console.log(getStore().token);
 				getActions().getUser();
 			},
 			getUser: () => {

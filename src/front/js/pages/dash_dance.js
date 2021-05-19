@@ -8,20 +8,20 @@ export const DashDance = () => {
 
 	if (store.token != null && store.user)
 		return (
-			<div className="container-fluid" style={{ position: "absolute", left: "300px" }}>
-				<h1>Dash Dance</h1>
-				<p>This is where the tutorial content will go</p>
+			<div className="container-fluid text-center my-5">
+				<h1 className="text-danger">Dash Dance</h1>
+				<p className="text-white">This is where the tutorial content will go</p>
 
 				<DiscreteSlider tech="dash_dance" />
-				<p>My current progress: {store.user.progress.dash_dance}%</p>
+				<p className="text-white">My current progress: {store.user.progress.dash_dance}%</p>
 			</div>
 		);
 	else
 		return (
-			<div className="container-fluid" style={{ position: "absolute", left: "300px" }}>
-				<h1>Dash Dance</h1>
-				<p>This is where the tutorial content will go</p>
-				<p>Sign-up/Log-in to track your progress!</p>
+			<div className="container-fluid text-center my-5">
+				<h1 className="text-danger">Dash Dance</h1>
+				<p className="text-white">This is where the tutorial content will go</p>
+				<p className="text-white">Sign-up/Log-in to track your progress!</p>
 			</div>
 		);
 };
