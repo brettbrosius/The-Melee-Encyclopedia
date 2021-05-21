@@ -11,7 +11,7 @@ export const Profile = () => {
 		return (
 			<div className="container-fluid">
 				<h1 className="text-center my-5 text-danger">{store.user.username}</h1>
-				<ul className="text-white" style={{ position: "absolute", left: "300px" }}>
+				<ul className="text-white" style={{ display: "inline-flex", position: "absolute", left: "300px" }}>
 					<li className="my-5">
 						<Link to="/short_hop">Short-hop</Link> progress: {store.user.progress.short_hop}%<br />
 						<br />

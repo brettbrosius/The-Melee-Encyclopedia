@@ -50,14 +50,6 @@ def get_user():
     progress = Progress.query.filter_by(user_id=user_id).first()
     return jsonify(user.serialize()), 200
 
-# @api.route("/progress/<int:id>", methods=["GET"])
-# @jwt_required()
-# def get_progress(id):
-#     user_id = get_jwt_identity()
-#     progress_query = Progress.query.filter_by(user_id=user_id).first()
-#     # progress = list(map(lambda progress: progress.serialize(), progress_query))
-#     return jsonify(progress_query.serialize()), 200
-#### IDK IF I NEED THIS I CAN JUST DO IT IN THE /USER/ METHOD ABOVE BUT IM GONNA KEEP IT JSUT IN CASE HEHE ####
 
 
 @api.route("/progress/<int:id>/", methods=["POST"])

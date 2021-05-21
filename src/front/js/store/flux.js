@@ -17,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().getUser();
 			},
 			getUser: () => {
-				fetch("https://3001-magenta-grouse-kf6evau0.ws-us04.gitpod.io/api/user/", {
+				fetch("https://3001-magenta-grouse-kf6evau0.ws-us07.gitpod.io/api/user/", {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let username = event.target.elements[0].value;
 				let password = event.target.elements[1].value;
 				let final = { username, password };
-				fetch("https://3001-magenta-grouse-kf6evau0.ws-us04.gitpod.io/api/signup", {
+				fetch("https://3001-magenta-grouse-kf6evau0.ws-us07.gitpod.io/api/signup", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -55,7 +55,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let username = event.target.elements[0].value;
 				let password = event.target.elements[1].value;
 				let final = { username, password };
-				fetch("https://3001-magenta-grouse-kf6evau0.ws-us04.gitpod.io/api/login", {
+				fetch("https://3001-magenta-grouse-kf6evau0.ws-us07.gitpod.io/api/login", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -73,7 +73,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			updateProgress: (progress, tech) => {
 				let final = { [tech]: progress };
-				fetch(`https://3001-magenta-grouse-kf6evau0.ws-us04.gitpod.io/api/progress/${getStore().user.id}`, {
+				fetch(`https://3001-magenta-grouse-kf6evau0.ws-us07.gitpod.io/api/progress/${getStore().user.id}`, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
